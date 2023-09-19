@@ -10,7 +10,7 @@ export const getEmployeeById = (id) => {
 }
 
 export const addEmployee = (employee) => {
-  return fetch("https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/employees", {
+  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/employees", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +22,7 @@ export const addEmployee = (employee) => {
 }
 
 export const getAllEmployees = () => {
-  return fetch("https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/employees", {
+  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/employees", {
     headers: {
       Authorization: `Token ${getToken()}`
     }

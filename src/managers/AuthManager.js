@@ -1,5 +1,5 @@
 export const loginUser = (user) => {
-  return fetch("https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/login", {
+  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export const loginUser = (user) => {
 }
 
 export const registerUser = (user) => {
-  return fetch("https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/register", {
+  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

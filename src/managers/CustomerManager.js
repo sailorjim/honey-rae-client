@@ -1,7 +1,7 @@
 import { getToken } from "../utils/getToken"
 
 export const getAllCustomers = () => {
-  return fetch("https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/customers", {
+  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/customers", {
     headers: {
       Authorization: `Token ${getToken()}`
     }
