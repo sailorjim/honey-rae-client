@@ -40,7 +40,7 @@ export const searchTicketsByStatus = (status) => {
 }
 
 export const updateTicket = (ticket) => {
-  return fetch(`https://6509f43e18794a397f56ccd6--honeyrae.netlify.app/serviceTickets/${ticket.id}`, {
+  return fetch(`https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/serviceTickets/${ticket.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +51,7 @@ export const updateTicket = (ticket) => {
 }
 
 export const deleteTicket = (id) => {
-  return fetch(`https://6509f43e18794a397f56ccd6--honeyrae.netlify.app/serviceTickets/${id}`, {
+  return fetch(`https://6509f518ec73fb362e0a7354--honeyrae.netlify.app/serviceTickets/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`
