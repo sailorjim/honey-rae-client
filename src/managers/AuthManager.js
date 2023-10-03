@@ -1,5 +1,5 @@
 export const loginUser = (user) => {
-  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/login", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -11,7 +11,7 @@ export const loginUser = (user) => {
 }
 
 export const registerUser = (user) => {
-  return fetch("https://honeyrae-server-7fafc8315c00.herokuapp.com/register", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/register", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
