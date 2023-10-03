@@ -11,7 +11,7 @@ export const getTicketById = (id) => {
 }
 
 export const addTicket = (ticket) => {
-  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/serviceTickets", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/Tickets", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
