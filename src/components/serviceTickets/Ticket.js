@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom"
 import { isStaff } from "../../utils/isStaff"
 import { getAllEmployees } from "../../managers/EmployeeManager"
 import { getTicketById, deleteTicket, updateTicket } from "../../managers/TicketManager"
-import { ticketStatus } from "./TicketToolbox"
+import { ticketStatus } from "./TicketStatus"
 
 export const Ticket = () => {
   const [ticket, setTicket] = useState({})
@@ -18,9 +18,8 @@ export const Ticket = () => {
 
   useEffect(
     () => {
-      fetchTicket()
-    },
-    [ticketId]
+      fetchTicket([ticketId])
+    }
   )
 
   useEffect(
@@ -41,26 +40,16 @@ export const Ticket = () => {
 
     updateTicket(updatedTicket).then(() => fetchTicket())
   }
-  const doneTicketEvent = (evt) => {
-    function formatDate(date) {
-      const d = new Date(date),
-        month = '' + (d.getMonth() + 1),
-        day = '' + d.getDate(),
-        year = d.getFullYear();
-      let updatedMonth = month;
-      let updatedDay = day;
-      if (month.length < 2) updatedMonth = '0' + month;
-      if (day.length < 2) updatedDay = '0' + day;
-    
-      return [year, updatedMonth, updatedDay].join('-');
+  const ticketCompletedEvent = () => {
+    const updatedTicket = {
+      ...ticket,
+      date_completed: new Date().toISOString().split('T')[0],
+      customer: ticket.customer.id,
+      employee: ticket.employee.id
     }
-    const formattedDate = formatDate(new Date());
-    // Use a local variable for the modified ticket
-    let completedTicket = {...ticket};
-    completedTicket.date_completed = formattedDate;
-    updateTicket(completedTicket)
-  };
-
+    console.log(updatedTicket)
+    updateTicket(updatedTicket).then(() => fetchTicket())
+  }
 
   // const ticketStatus = () => {
   //   if (ticket.date_completed === null) {
@@ -71,58 +60,26 @@ export const Ticket = () => {
   //   }
   //   return <span className="status--completed">Done</span>
   // }
-  const isTicketCompleted = () => {
-    return ticket.date_completed !== null;
-  }
-  
 
-  // const employeePicker = () => {
-  //   if (isStaff()) {
-  //     return <div className="ticket__employee">
-  //       <label>Assign to:</label>
-  //       <select
-  //         value={ticket.employee?.id}
-  //         onChange={updateTicketEvent}>
-  //         <option value="0">Choose...</option>
-  //         {
-  //           employees.map(e => <option key={`employee--${e.id}`} value={e.id}>{e.full_name}</option>)
-  //         }
-  //       </select>
-  //       <button onClick={doneTicketEvent}>Mark Done</button>
-  //     </div>
-  //   }
-  //   else {
-  //     return <div className="ticket__employee">Assigned to {ticket.employee?.full_name ?? "no one"}</div>
-  //   }
-  // }
   const employeePicker = () => {
     if (isStaff()) {
-      return (
-        <div className="ticket__employee">
-          <label>Assign to:</label>
-          <select
-            value={ticket.employee?.id}
-            onChange={updateTicketEvent}
-          >
-            <option value="0">Choose...</option>
-            {employees.map((e) => (
-              <option key={`employee--\${e.id}`} value={e.id}>
-                {e.full_name}
-              </option>
-            ))}
-          </select>
-          {!isTicketCompleted() && <button onClick={doneTicketEvent}>Mark Done</button>}
-        </div>
-      );
-    } else {
-      return (
-        <div className="ticket__employee">
-          Assigned to {ticket.employee?.full_name ?? "no one"}
-        </div>
-      );
+      return <div className="ticket__employee">
+        <label>Assign to:</label>
+        <select
+          value={ticket.employee?.id}
+          onChange={updateTicketEvent}>
+          <option value="0">Choose...</option>
+          {
+            employees.map(e => <option key={`employee--${e.id}`} value={e.id}>{e.full_name}</option>)
+          }
+        </select>
+        <button onClick={() => ticketCompletedEvent()}>Mark Completed</button>
+      </div>
     }
-  };
-  
+    else {
+      return <div className="ticket__employee">Assigned to {ticket.employee?.full_name ?? "no one"}</div>
+    }
+  }
 
   return (
     <>
@@ -135,7 +92,7 @@ export const Ticket = () => {
           <div className="ticket__employee footerItem">
             {
               ticket.date_completed === null
-                ? employeePicker()
+                ? employeePicker() 
                 : `Completed by ${ticket.employee?.full_name} on ${ticket.date_completed}`
             }
           </div>
@@ -145,7 +102,7 @@ export const Ticket = () => {
           {
             isStaff()
               ? <></>
-              : <><button onClick={deleteTicketEvent}>Delete</button></>
+              : <button onClick={deleteTicketEvent}>Delete</button>
           }
         </footer>
 
@@ -153,10 +110,3 @@ export const Ticket = () => {
     </>
   )
 }
-
-
-
-
-
-
-
