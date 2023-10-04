@@ -1,4 +1,4 @@
-import { ticketStatus } from "./TicketToolbox"
+import { ticketStatus } from "./TicketStatus"
 import "./Tickets.css"
 
 export const TicketFooter = ({ ticket }) => {
