@@ -1,7 +1,8 @@
 import { getToken } from "../utils/getToken"
 
+
 export const getTicketById = (id) => {
-  return fetch(`http://localhost:8000/serviceTickets/${id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${id}`, {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -10,7 +11,7 @@ export const getTicketById = (id) => {
 }
 
 export const addTicket = (ticket) => {
-  return fetch("http://localhost:8000/serviceTickets", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/tickets", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -22,7 +23,7 @@ export const addTicket = (ticket) => {
 }
 
 export const getAllTickets = () => {
-  return fetch("http://localhost:8000/serviceTickets", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/tickets", {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -31,7 +32,7 @@ export const getAllTickets = () => {
 }
 
 export const searchTicketsByStatus = (status) => {
-  return fetch(`http://localhost:8000/serviceTickets?status=${status}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets?status=${status}`, {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -40,7 +41,7 @@ export const searchTicketsByStatus = (status) => {
 }
 
 export const updateTicket = (ticket) => {
-  return fetch(`http://localhost:8000/serviceTickets/${ticket.id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${ticket.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -51,7 +52,7 @@ export const updateTicket = (ticket) => {
 }
 
 export const deleteTicket = (id) => {
-  return fetch(`http://localhost:8000/serviceTickets/${id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`

@@ -2,15 +2,15 @@ import { Route, Routes } from "react-router-dom"
 import { Login } from "../components/auth/Login"
 import { Register } from "../components/auth/CustomerRegister"
 import { Authorized } from "./Authorized"
-import { TicketList } from "../components/serviceTickets/TicketList"
-import { Ticket } from "../components/serviceTickets/Ticket"
-import { TicketForm } from "../components/serviceTickets/TicketForm"
+import { Ticket } from "../components/tickets/Ticket"
+import { TicketForm } from "../components/tickets/TicketForm"
 import { EmployeeRegister } from "../components/auth/EmployeeRegister"
 import { StaffAuthorized } from "./StaffAuthorized"
 import { CustomerList } from "../components/customers/CustomerList"
 import { EmployeeList } from "../components/employees/EmployeeList"
 import { Employee } from "../components/employees/Employee"
 import { EmployeeForm } from "../components/employees/EmployeeForm"
+import { TicketList } from "../components/tickets/TicketList"
 
 export const ApplicationViews = () => {
   return <Routes>
