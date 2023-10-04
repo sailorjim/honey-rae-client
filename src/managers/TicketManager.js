@@ -2,7 +2,7 @@ import { getToken } from "../utils/getToken"
 
 
 export const getTicketById = (id) => {
-  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets/${id}`, {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -11,7 +11,7 @@ export const getTicketById = (id) => {
 }
 
 export const addTicket = (ticket) => {
-  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/tickets", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +23,7 @@ export const addTicket = (ticket) => {
 }
 
 export const getAllTickets = () => {
-  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/tickets", {
+  return fetch("https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets", {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -32,7 +32,7 @@ export const getAllTickets = () => {
 }
 
 export const searchTicketsByStatus = (status) => {
-  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets?status=${status}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets?status=${status}`, {
     headers: {
       Authorization: `Token ${getToken()}`
     }
@@ -41,7 +41,7 @@ export const searchTicketsByStatus = (status) => {
 }
 
 export const updateTicket = (ticket) => {
-  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${ticket.id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets/${ticket.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
@@ -52,7 +52,7 @@ export const updateTicket = (ticket) => {
 }
 
 export const deleteTicket = (id) => {
-  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/tickets/${id}`, {
+  return fetch(`https://honey-rae-98464e3a878d.herokuapp.com/ServiceTickets/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Token ${getToken()}`
