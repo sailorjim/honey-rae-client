@@ -71,7 +71,7 @@ export const Ticket = () => {
           onChange={updateTicketEvent}>
           <option value="0">Choose...</option>
           {
-            employees.map(e => <option key={`employee--${e.id}`} value={e.id}>{e.full_name}</option>)
+            employees.map(e => <option key={`employee--${e.id}`} value={e.id}>{e.user.first_name}</option>)
           }
         </select>
         <button onClick={() => ticketCompletedEvent()}>Mark Completed</button>
