@@ -29,8 +29,8 @@ export const Login = () => {
 
   return (
     <main className="container--login">
-      <img src="/logo.svg" />
-      <img src="/illustration.svg" />
+      <img className="logo" src="/logo.svg" alt="honey rae logo"/>
+      <img className="illustration" src="/illustration.svg" />
       
       <dialog className="dialog dialog--auth" ref={invalidDialog}>
         <div>Username or password was not valid.</div>
@@ -43,20 +43,15 @@ export const Login = () => {
             <h2>Schedule an appointment</h2>
             <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
             <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
-            <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+            <div className="form-actions">
+              <Link className="register-link" to="/register">CREATE AN ACCOUNT</Link>
+              <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
+            </div>
         </form>
       </section>
 
-      Worker bees repairing your electronics on the internet
-      Schedule an appointment
-      Username
-      Password
-      CREATE AN ACCOUNT
-      Sign in
 
-      <section className="link--register">
-        <Link to="/register">Not a member yet?</Link>
-      </section>
+
     </main>
   )
 }
