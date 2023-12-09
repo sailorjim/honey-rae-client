@@ -29,29 +29,31 @@ export const Login = () => {
 
   return (
     <main className="container--login">
+      <img src="/logo.svg" />
+      <img src="/illustration.svg" />
+      
       <dialog className="dialog dialog--auth" ref={invalidDialog}>
         <div>Username or password was not valid.</div>
         <button className="button--close" onClick={e => invalidDialog.current.close()}>Close</button>
       </dialog>
+
       <section>
         <form className="form--login" onSubmit={handleLogin}>
-          <h1>Honey Rae's</h1>
-          <h2>Please sign in</h2>
-          <fieldset>
-            <label htmlFor="inputUsername"> Username </label>
-            <input ref={username} type="username" id="username" className="form-control" placeholder="Username address" required autoFocus />
-          </fieldset>
-          <fieldset>
-            <label htmlFor="inputPassword"> Password </label>
+            <h1>Worker bees repairing your electronics on the internet</h1>
+            <h2>Schedule an appointment</h2>
+            <input ref={username} type="username" id="username" className="form-control" placeholder="Username" required autoFocus />
             <input ref={password} type="password" id="password" className="form-control" placeholder="Password" required />
-          </fieldset>
-          <fieldset style={{
-            textAlign: "center"
-          }}>
             <button className="btn btn-1 btn-sep icon-send" type="submit">Sign In</button>
-          </fieldset>
         </form>
       </section>
+
+      Worker bees repairing your electronics on the internet
+      Schedule an appointment
+      Username
+      Password
+      CREATE AN ACCOUNT
+      Sign in
+
       <section className="link--register">
         <Link to="/register">Not a member yet?</Link>
       </section>
